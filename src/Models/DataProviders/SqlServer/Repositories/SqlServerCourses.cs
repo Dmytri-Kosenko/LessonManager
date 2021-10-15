@@ -8,32 +8,40 @@ namespace Models.DataProviders.Repositories
 {
     public class SqlServerCourses : ICoursesRep
     {
-        public IQueryable<Course> Items
+        private readonly SqlSerDbContext context;
+
+        public SqlServerCourses(SqlSerDbContext context) => this.context = context;
+
+        public IQueryable<Course> Items => context.Courses;
+
+        public void Add(Course course)
         {
-            get
+            if(course.Id == default)
             {
-                using var context = new SqlSerDbContext();
-                return context.Courses;
+                course.Id = Guid.NewGuid();
+                context.Add(course);
+                context.SaveChanges();
+                return;
             }
+            var result = context.Courses.FirstOrDefault(s => s.Id == course.Id);
+            if (result is not null) throw new ArgumentException("");
+            context.Add(course);
+            context.SaveChanges();
         }
+
         public void Delete(Guid id)
         {
-            using var context = new SqlSerDbContext();
             var result = context.Courses.FirstOrDefault(s => s.Id == id);
             if (result == default) return;
             context.Remove(result);
             context.SaveChanges();
         }
 
-        public Course? GetCourseById(Guid id)
-        {
-            using var context = new SqlSerDbContext();
-            return context.Courses.FirstOrDefault(s => s.Id == id);
-        }
-               
+        public Course? GetCourseById(Guid id) =>
+            context.Courses.FirstOrDefault(s => s.Id == id);
+
         public void Rename(Course course, string name)
         {
-            using var context = new SqlSerDbContext();
             var result = context.Courses.FirstOrDefault(s => s.Id == course.Id);
             if (result == null) throw new ArgumentException("Такого курса не существует");
             if (course.Name != name)

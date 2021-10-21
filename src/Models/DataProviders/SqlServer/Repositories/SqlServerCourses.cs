@@ -1,10 +1,10 @@
-﻿using Models.DataProviders.SqlServer;
-using Models.Entities;
+﻿using Models.Entities;
 using Models.Repositories;
 using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-namespace Models.DataProviders.Repositories
+namespace Models.DataProviders.SqlServer.Repositories
 {
     public class SqlServerCourses : ICoursesRep
     {
@@ -12,13 +12,13 @@ namespace Models.DataProviders.Repositories
 
         public SqlServerCourses(SqlSerDbContext context) => this.context = context;
 
-        public IQueryable<Course> Items => context.Courses;
+        public IQueryable<Course> Items => context.Courses.Include(c => c.Students);
 
         public void Add(Course course)
         {
             if(course.Id == default)
             {
-                course.Id = Guid.NewGuid();
+                //course.Id = Guid.NewGuid();
                 context.Add(course);
                 context.SaveChanges();
                 return;
@@ -33,6 +33,11 @@ namespace Models.DataProviders.Repositories
         {
             var result = context.Courses.FirstOrDefault(s => s.Id == id);
             if (result == default) return;
+            var students = context.Students.Where(s => s.Courses.Contains(result));
+            foreach (var item in students)
+            {
+                item.Courses.Remove(result);
+            }
             context.Remove(result);
             context.SaveChanges();
         }

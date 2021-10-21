@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models.DataProviders.Repositories;
+using Models.DataProviders.SqlServer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,12 @@ namespace Models.DataProviders.Repositories.Tests
             Assert.AreEqual(expCount + 1, actCount);
         }
         [TestMethod()]
-        public void DeleteTest()
+        public void Delete_1_Курс_CourseIsNull()
         {
-            Assert.Fail();
+            //act
+            course.Delete(course.Items.FirstOrDefault(s => s.Name == "2 курс").Id);
+            //assert
+            Assert.IsNull(course.Items.FirstOrDefault(s => s.Name == "2 курс"));
         }
 
         [TestMethod()]

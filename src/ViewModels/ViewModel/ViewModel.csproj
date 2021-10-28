@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Commands\IErrorCancelHandler.cs">
+      <DependentUpon>IErrorHandler.cs</DependentUpon>
+    </None>
+    <None Include="Commands\QuickCommands\Command.Generic.cs">
+      <DependentUpon>Command.cs</DependentUpon>
+    </None>
+    <None Include="Commands\AsyncCommands\AsyncCommand.Generic.cs">
+      <DependentUpon>AsyncCommand.cs</DependentUpon>
+    </None>
+    <None Include="Commands\AsyncCommands\IAsyncCommand.Generic.cs">
+      <DependentUpon>IAsyncCommand.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+</Project>

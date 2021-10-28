@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "ViewModels\Vi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfViews", "Views\WpfViews\WpfViews.csproj", "{8588029D-0E79-426A-9CC0-BAADCD60D793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsTests", "ModelsTests\ModelsTests.csproj", "{4632F2A5-29AB-4AC6-8C8D-989595757972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsTests", "ModelsTests\ModelsTests.csproj", "{4632F2A5-29AB-4AC6-8C8D-989595757972}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "C:\Users\KosenkoDY\source\repos\LessonManager\src\ViewModels\ViewModel\ViewModel.csproj", "{F31231ED-A727-4DFA-85DD-B72E0AE128A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4632F2A5-29AB-4AC6-8C8D-989595757972}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4632F2A5-29AB-4AC6-8C8D-989595757972}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4632F2A5-29AB-4AC6-8C8D-989595757972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F31231ED-A727-4DFA-85DD-B72E0AE128A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31231ED-A727-4DFA-85DD-B72E0AE128A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31231ED-A727-4DFA-85DD-B72E0AE128A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31231ED-A727-4DFA-85DD-B72E0AE128A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

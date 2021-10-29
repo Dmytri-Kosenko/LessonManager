@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Models\Models.csproj" />
+	  <ProjectReference Include="C:\Users\KosenkoDY\source\repos\LessonManager\src\ViewModels\ViewModel\ViewModel.csproj" />
 	</ItemGroup>
 
 </Project>

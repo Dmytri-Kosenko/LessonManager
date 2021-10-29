@@ -9,5 +9,10 @@
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\ViewModels\ViewModels\ViewModels.csproj" />
+	  <ProjectReference Include="C:\Users\KosenkoDY\source\repos\LessonManager\src\ViewModels\ViewModel\ViewModel.csproj" />
+	</ItemGroup>
+
 </Project>
 

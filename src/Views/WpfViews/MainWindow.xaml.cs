@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using ViewModel.Commands;
+using ViewModels;
 
 namespace WpfViews
 {
@@ -10,6 +12,10 @@ namespace WpfViews
         public MainWindow()
         {
             InitializeComponent();
+            if (DataContext is MainViewModel model)
+            {
+                model.ErrorHandler = new ErrorHandler();
+            }
         }
     }
 }
